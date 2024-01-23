@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.sensor.stepcounter" android:required="true" />
+    <uses-permission android:name="android.permission.PEDOMETER" />
 
     <application
         android:allowBackup="true"
@@ -44,12 +51,12 @@
 
             <!-- You can include additional settings for ProfileActivity here -->
         </activity>
-        <activity
-            android:name=".St"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+<!--        <activity-->
+<!--            android:name=".St"-->
+<!--            android:theme="@style/Theme.AppCompat.NoActionBar">-->
 
-            <!-- You can include additional settings for ProfileActivity here -->
-        </activity>
+<!--            &lt;!&ndash; You can include additional settings for ProfileActivity here &ndash;&gt;-->
+<!--        </activity>-->
     </application>
 
 </manifest>

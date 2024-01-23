@@ -4,28 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.lifecycle.ViewModelProvider;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     private MainScreenViewModel mainScreenViewModel;
     private MainScreenRepository mainScreenRepository;
-    private OrmliteHelper ormliteHelper;
-    private UsersDTO user = new UsersDTO();
-    private FitnessDTO fitnessDTO = new FitnessDTO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         mainScreenRepository = new MainScreenRepository(this);
 
@@ -34,14 +24,7 @@ public class MainActivity extends AppCompatActivity {
         // Observe changes in user name LiveData
         mainScreenViewModel.getUserNameLiveData().observe(this, userName -> {
             TextView textViewUserName = findViewById(R.id.textViewUserName);
-            List<UsersDTO> usersDTOList = new ArrayList<>();
-            ormliteHelper = new OrmliteHelper(this);
-            try {
-                usersDTOList = ormliteHelper.getAll(UsersDTO.class);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-                        textViewUserName.setText("Welcome, " +usersDTOList.get(usersDTOList.size() -1 ).getFirstname() );
+            textViewUserName.setText("Welcome, " + userName);
         });
 
         // Set initial user name
@@ -50,33 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up button click listeners
         Button buttonSeeProfile = findViewById(R.id.buttonSeeProfile);
-        buttonSeeProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
+        buttonSeeProfile.setOnClickListener(v -> {
+            // Start the ProfileActivity
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
         });
-
 
 
         Button buttonLocateYourself = findViewById(R.id.buttonLocateYourself);
         Button buttonStepCounter = findViewById(R.id.buttonStepCounter);
-        buttonStepCounter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, StepCounter.class);
-                startActivity(intent);
-            }
-        });
-        buttonLocateYourself.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, YourSelf.class);
-                startActivity(intent);
-            }
-        });
 
-
+        // Your button click logic goes here...
     }
 }
