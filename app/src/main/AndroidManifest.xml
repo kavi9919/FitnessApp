@@ -6,13 +6,28 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/fitness"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessApplication"
         tools:targetApi="31">
+        <activity
+            android:name=".YourSelf"
+            android:exported="false" />
+        <activity
+            android:name=".StepCounter"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".UserRegistrationActivity" />
         <activity
             android:name=".MainActivity"
@@ -23,18 +38,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- AndroidManifest.xml -->
         <activity
-            android:name=".SplashScreenActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".ProfileActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
 
+            <!-- You can include additional settings for ProfileActivity here -->
+        </activity>
+        <activity
+            android:name=".St"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+            <!-- You can include additional settings for ProfileActivity here -->
+        </activity>
     </application>
 
 </manifest>
