@@ -18,7 +18,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         // Check if the user's profile is registered
-        SharedPreferences preferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        // Check if the user's profile is registered
+        SharedPreferences preferences =  getSharedPreferences("MyPreferences",MODE_PRIVATE);
         boolean isProfileRegistered = preferences.getBoolean(KEY_PROFILE_REGISTERED, false);
 
         // Initialize UI elements
