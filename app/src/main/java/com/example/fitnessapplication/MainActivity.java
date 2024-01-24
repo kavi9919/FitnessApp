@@ -40,7 +40,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button buttonLocateYourself = findViewById(R.id.buttonLocateYourself);
+        buttonLocateYourself.setOnClickListener(v -> {
+            // Start the step count
+            startActivity(new Intent(MainActivity.this, LocationActivity.class));
+        });
+
         Button buttonStepCounter = findViewById(R.id.buttonStepCounter);
+        buttonStepCounter.setOnClickListener(v -> {
+            // Start the step count
+            startActivity(new Intent(MainActivity.this, CountActivity.class));
+        });
 
         // Your button click logic goes here...
     }

@@ -8,7 +8,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-feature android:name="android.hardware.sensor.stepcounter" android:required="true" />
     <uses-permission android:name="android.permission.PEDOMETER" />
-
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyA7eRrBXBLeiq0mFYWDssNcGo-1O1ttU8w" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,10 +22,10 @@
         android:theme="@style/Theme.FitnessApplication"
         tools:targetApi="31">
         <activity
-            android:name=".YourSelf"
+            android:name=".LocationActivity"
             android:exported="false" />
         <activity
-            android:name=".StepCounter"
+            android:name=".CountActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
@@ -51,12 +53,7 @@
 
             <!-- You can include additional settings for ProfileActivity here -->
         </activity>
-<!--        <activity-->
-<!--            android:name=".St"-->
-<!--            android:theme="@style/Theme.AppCompat.NoActionBar">-->
 
-<!--            &lt;!&ndash; You can include additional settings for ProfileActivity here &ndash;&gt;-->
-<!--        </activity>-->
     </application>
 
 </manifest>
